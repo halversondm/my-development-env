@@ -20,4 +20,6 @@ ENV TERM xterm
 
 ENTRYPOINT ["./scripts/setup.sh"]
 
+STOPSIGNAL SIGQUIT
+
 CMD ["tail", "-f", "/dev/null"]
