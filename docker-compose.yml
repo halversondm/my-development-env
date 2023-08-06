@@ -1,0 +1,13 @@
+services:
+  my-dev-env-1-2-0:
+    image: halversondm/my-dev-env:1.2.0
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+      - "8080:8080"
+    volumes:
+      - ~/dev:/development
+      - devuser:/home/devuser
+volumes:
+  devuser: { }
