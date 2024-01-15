@@ -1,0 +1,1 @@
+docker build --rm -f Dockerfile -t halversondm/my-python-env:1.0.0 .
