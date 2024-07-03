@@ -1,6 +1,8 @@
 services:
-  build-container:
-    image: halversondm/my-dev-env:1.2.0
+  java-javascript:
+    image: halversondm/my-dev-env:1.4.0
+    tty: true
+    command: /bin/zsh
     ports:
       - 3000:3000
       - 3001:3001
@@ -9,6 +11,14 @@ services:
     volumes:
       - ~/dev:/development
       - devuser:/home/devuser
+  python:
+    image: halversondm/my-python-env:1.1.4
+    ports:
+      - 6000:5000
+      - 8888:8888
+    volumes:
+      - ~/dev:/development
+      - venv:/home/devuser
   db:
     image: postgres:15.3-alpine3.18
     restart: always
@@ -21,3 +31,4 @@ services:
 volumes:
   devuser: { }
   db: { }
+  venv: { }
