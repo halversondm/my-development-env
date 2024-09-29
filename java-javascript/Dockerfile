@@ -1,4 +1,4 @@
-FROM alpine:3.18 AS build
+FROM alpine:3.20 AS build
 
 # https://github.com/oven-sh/bun/releases
 ARG BUN_VERSION=latest
@@ -89,7 +89,7 @@ RUN apk --no-cache add \
       *) echo "error: unsupported architecture '$arch'"; exit 1 ;; \
     esac
 
-FROM alpine:3.18
+FROM alpine:3.20
 
 LABEL maintainer="Dan Halverson daniel.m.halverson@gmail.com"
 
@@ -119,7 +119,7 @@ RUN apk add --no-cache openssh openjdk8 openjdk11 openjdk17 maven nodejs npm zsh
 USER devuser:wheel
 WORKDIR /home/devuser
 
-ADD --chown=devuser:wheel java-javascript/scripts/*.sh ./scripts/
+ADD --chown=devuser:wheel scripts/*.sh ./scripts/
 ADD --chown=devuser:wheel zshrc .zshrc
 
 ENV TERM xterm

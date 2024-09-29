@@ -1,6 +1,6 @@
 services:
   java-javascript:
-    image: halversondm/my-dev-env:1.4.0
+    image: halversondm/my-dev-env:1.5.0
     tty: true
     command: /bin/zsh
     ports:

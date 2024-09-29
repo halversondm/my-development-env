@@ -1,1 +1,1 @@
-docker build --rm -f Dockerfile -t halversondm/my-dev-env:1.4.0 .
+docker build --rm -f Dockerfile -t halversondm/my-dev-env:1.5.0 .
