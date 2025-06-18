@@ -1,6 +1,6 @@
 services:
   java-javascript:
-    image: halversondm/my-dev-env:1.5.0
+    image: halversondm/my-dev-env:1.6.0
     tty: true
     command: /bin/zsh
     ports:
@@ -12,7 +12,7 @@ services:
       - ~/dev:/development
       - devuser:/home/devuser
   python:
-    image: halversondm/my-python-env:1.1.4
+    image: halversondm/my-python-env:1.1.0
     ports:
       - 6000:5000
       - 8888:8888
