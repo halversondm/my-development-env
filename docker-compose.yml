@@ -3,6 +3,7 @@ services:
     image: halversondm/my-dev-env:1.6.0
     tty: true
     command: /bin/zsh
+    restart: always
     ports:
       - 3000:3000
       - 3001:3001
