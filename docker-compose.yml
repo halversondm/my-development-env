@@ -1,8 +1,8 @@
+name: dev-env
 services:
   java-javascript:
-    image: halversondm/my-dev-env:1.6.0
-    tty: true
-    command: /bin/zsh
+    image: halversondm/my-dev-env:1.0.0
+    privileged: true
     restart: always
     ports:
       - 3000:3000
@@ -12,6 +12,7 @@ services:
     volumes:
       - ~/dev:/development
       - devuser:/home/devuser
+      - /var/run/docker.sock:/var/run/docker.sock
   python:
     image: halversondm/my-python-env:1.1.0
     ports:
@@ -20,16 +21,18 @@ services:
     volumes:
       - ~/dev:/development
       - venv:/home/devuser
-  db:
-    image: postgres:15.3-alpine3.18
+  postgres:
+    image: 'bitnami/postgresql:15'
     restart: always
-    environment:
-      POSTGRES_PASSWORD: example
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
-      - db:/var/lib/postgresql/data
+      - "postgres_data:/bitnami/postgresql"
+    environment:
+      - POSTGRESQL_USERNAME=devuser
+      - POSTGRESQL_PASSWORD=example
+      - POSTGRESQL_DATABASE=devuser
 volumes:
   devuser: { }
-  db: { }
+  postgres_data: { }
   venv: { }
